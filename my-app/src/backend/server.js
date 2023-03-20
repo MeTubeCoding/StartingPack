@@ -1,6 +1,10 @@
+
+// Cela va probablement un peu changer car il faut que je l'adapte pour typescript mais pour pouvez
+// commencer à taffer la dessus y'aura juste quelque correction mineur à l'avenir le temps je règle le
+// problème
+
 const express = require('express');
 const app = express();
-
 const cors = require('cors');
 const bodyparser = require("body-parser");
 const path = require('path');
@@ -28,12 +32,14 @@ app.use('/', express.static(publi));
 
 app.use(cors(corsOptions));
 
+
+
 // Optionnel a vous de voir pour vous adapter à votre problématique : 
 
-app.get('/',(req,res)=>{
+// app.get('/',(req,res)=>{
 
-    res.sendFile(path.join(nomDuDossierOuLeUserArrive, 'nomDuFichierSurLequelLeUserEstCenséAtterirDèsQuilEstSurLeSite.html'));
-})
+//     res.sendFile(path.join('nomDuDossierOuLeUserArrive', 'nomDuFichierSurLequelLeUserEstCenséAtterirDèsQuilEstSurLeSite.html'));
+// })
 
 app.post('/node/sub',(req,res)=>{
     
@@ -59,6 +65,11 @@ app.post('/node/sub',(req,res)=>{
     res.end();
     
 });
+
+app.get('/demo',(req,res)=>{
+  console.log("test");
+  res.end("reponse du serveur");
+})
 
 //
 
